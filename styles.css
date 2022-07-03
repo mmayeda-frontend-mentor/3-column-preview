@@ -80,10 +80,11 @@ p {
 }
 
 .preview-card > button {
-  border-radius: 2rem;
+  border-radius: 3rem;
   width: 50%;
   padding: 1em 0.75em;
-  border: none;
+  border-style: solid;
+  border-color: var(--color-light-gray);
   background-color: var(--color-light-gray);
   font-family: 'Lexend Deca', sans-serif;
   color: var(--color-primary-cyan);
@@ -97,3 +98,8 @@ p {
   color: var(--color-primary-cyan-dark);
 }
 
+.preview-card > button:hover {
+  color: var(--color-light-gray);
+  cursor: pointer;
+  background-color: transparent;
+}
