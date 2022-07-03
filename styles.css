@@ -3,6 +3,8 @@
   --color-primary-orange: hsl(31, 77%, 52%);
   --color-primary-cyan: hsl(184, 100%, 22%);
   --color-primary-cyan-dark: hsl(179, 100%, 13%);
+
+  --border-radius-preview-card: 0.5rem;
 }
 
 html {
@@ -20,9 +22,11 @@ p {
   margin: 0;
 }
 
-.preview-card-container {
+.preview-cards-container {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 
 .preview-card {
@@ -33,22 +37,30 @@ p {
   color: hsla(0, 0%, 100%, 0.75);
   justify-content: space-evenly;
   gap: 3rem 0;
+  max-width: 23rem;
 }
 
 .preview-card:first-child {
   background-color: var(--color-primary-orange);
-  border-top-right-radius: 0.5rem;
-  border-top-left-radius: 0.5rem;
-}
-
-.preview-card:first-child button {
-  color: var(--color-primary-orange);
+  border-top-right-radius: var(--border-radius-preview-card);
+  border-top-left-radius: var(--border-radius-preview-card);
 }
 
 .preview-card:last-child {
   background-color: var(--color-primary-cyan-dark);
-  border-bottom-left-radius: 0.5rem;
-  border-bottom-right-radius: 0.5rem;
+  border-bottom-left-radius: var(--border-radius-preview-card);
+  border-bottom-right-radius: var(--border-radius-preview-card);
+}
+
+@media only screen and (min-width: 650px) {
+  .preview-card:first-child {
+    border-top-right-radius: 0;
+    border-bottom-left-radius: var(--border-radius-preview-card);
+  }
+  .preview-card:last-child {
+    border-top-right-radius: var(--border-radius-preview-card);
+    border-bottom-left-radius: 0;
+  }
 }
 
 .preview-card > img {
@@ -74,8 +86,14 @@ p {
   border: none;
   background-color: var(--color-light-gray);
   font-family: 'Lexend Deca', sans-serif;
+  color: var(--color-primary-cyan);
 }
 
-.preview-card button:first-child {
-  color: hsl(31, 77%, 52%);
+.preview-card:first-child button {
+  color: var(--color-primary-orange);
 }
+
+.preview-card:last-child button {
+  color: var(--color-primary-cyan-dark);
+}
+
